@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="4-week-timeout"
+run/main_scene="res://Control.tscn"
 config/icon="res://icon.png"
+
+[global]
+
+scene=false
 
 [physics]
 

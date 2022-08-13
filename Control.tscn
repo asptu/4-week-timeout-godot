@@ -87,3 +87,4 @@ margin_bottom = -1.0
 text = "insert user id"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="request_completed" from="Button/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
