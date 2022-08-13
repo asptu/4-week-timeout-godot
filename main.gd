@@ -6,7 +6,7 @@ func _ready():
 func _on_Button_pressed():
 
 	var unix_time = OS.get_unix_time()
-	var timeout_time = unix_time + 2332800 
+	var timeout_time = unix_time + 2419200 
 	var time = OS.get_datetime_from_unix_time(timeout_time)
 	var year = time["year"]
 	var month = time["month"]
@@ -31,12 +31,16 @@ func _on_Button_pressed():
 	var url := 'https://discord.com/api/v9/guilds/' + str(guild_id) + "/members/" + str(user_id)
 	var query := JSON.print({"communication_disabled_until": str(timestamp)})
 	var headers := ["Authorization: %s" % token, "Content-Type: application/json"]
-	print(url)
-	print(query)
-	print(headers)
+
 	$Button/HTTPRequest.request(url, headers, true, HTTPClient.METHOD_PATCH, query)
 
-
-
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	print(response_code)
+
+	if response_code == 200:
+		$Button.text = "💥💥💥destroyed"
+		yield(get_tree().create_timer(2), "timeout")
+		$Button.text = "boop"
+	else:
+		$Button.text = "something went wrong, check your inputs"
+		yield(get_tree().create_timer(2), "timeout")
+		$Button.text = "boop"
