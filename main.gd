@@ -35,9 +35,8 @@ func _on_Button_pressed():
 	$Button/HTTPRequest.request(url, headers, true, HTTPClient.METHOD_PATCH, query)
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-
 	if response_code == 200:
-		$Button.text = "💥💥💥destroyed"
+		$Button.text = "destroyed"
 		yield(get_tree().create_timer(2), "timeout")
 		$Button.text = "boop"
 	else:

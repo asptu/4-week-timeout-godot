@@ -12,6 +12,7 @@ config_version=4
 
 config/name="4-week-timeout"
 run/main_scene="res://Control.tscn"
+run/low_processor_mode=true
 config/icon="res://icon.png"
 
 [global]

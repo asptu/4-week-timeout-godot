@@ -1,25 +1,71 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://cera.otf" type="DynamicFontData" id=2]
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.611765, 0.0352941, 0.0352941, 1 )
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.886275, 0.164706, 0.164706, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.729412, 0.184314, 0.184314, 1 )
+bg_color = Color( 0.815686, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.886275, 0.164706, 0.164706, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.305882, 0.313726, 0.352941, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.639216, 0.0470588, 0.0470588, 1 )
+bg_color = Color( 0.160784, 0.156863, 0.176471, 1 )
 
-[sub_resource type="Theme" id=3]
-Button/styles/hover = SubResource( 4 )
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 2 )
-Button/styles/pressed = SubResource( 5 )
+Button/styles/pressed = SubResource( 7 )
+LineEdit/styles/normal = SubResource( 6 )
+Panel/styles/panel = SubResource( 5 )
+
+[sub_resource type="Theme" id=8]
+Button/fonts/font = null
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 4 )
 script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
@@ -30,60 +76,60 @@ margin_left = -244.5
 margin_top = -126.5
 margin_right = 244.5
 margin_bottom = 126.5
-theme = SubResource( 3 )
+theme = SubResource( 8 )
 text = "boop"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Button"]
 
 [node name="GuildID_Input" type="LineEdit" parent="."]
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 53.0
-margin_top = -201.0
-margin_right = 283.0
-margin_bottom = -177.0
+margin_left = -452.0
+margin_top = -199.0
+margin_right = -222.0
+margin_bottom = -175.0
 
 [node name="GuildID_Label" type="RichTextLabel" parent="GuildID_Input"]
-margin_left = 60.0
-margin_top = -19.0
-margin_right = 203.0
-margin_bottom = -3.0
+margin_left = 29.0
+margin_top = -28.0
+margin_right = 185.0
 text = "insert guild id"
 
 [node name="Token_Input" type="LineEdit" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -153.0
-margin_top = -76.0
-margin_right = 169.0
-margin_bottom = -52.0
+anchor_bottom = 0.5
+margin_left = -158.0
+margin_top = 220.0
+margin_right = 164.0
+margin_bottom = 244.0
 secret = true
 
 [node name="Token_Label" type="RichTextLabel" parent="Token_Input"]
-margin_left = 119.0
-margin_top = -18.0
-margin_right = 198.0
-margin_bottom = -2.0
+margin_left = 94.0
+margin_top = -29.0
+margin_right = 231.0
+margin_bottom = -1.0
 rect_pivot_offset = Vector2( -850, -381 )
 text = "token input"
 
 [node name="UserID_Input" type="LineEdit" parent="."]
-anchor_left = 1.0
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -298.0
-margin_top = -200.0
-margin_right = -50.0
-margin_bottom = -176.0
+margin_left = 185.0
+margin_top = -193.0
+margin_right = 433.0
+margin_bottom = -169.0
 
 [node name="UserID_Label" type="RichTextLabel" parent="UserID_Input"]
-margin_left = 76.0
-margin_top = -17.0
-margin_right = 226.0
-margin_bottom = -1.0
+margin_left = 46.0
+margin_top = -26.0
+margin_right = 195.0
 text = "insert user id"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
