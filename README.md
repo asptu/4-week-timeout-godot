@@ -14,3 +14,4 @@ Insert the user id of the victim, your guild id of choice and your user token at
 - Terrible UI
 - Won't work if you don't have timeout permissions (It's not magic)
 
+(Font is not included in source, keep in mind if building yourself)
