@@ -4,9 +4,9 @@ func _ready():
 	pass
 
 func _on_Button_pressed():
-
+	
 	var unix_time = OS.get_unix_time()
-	var timeout_time = unix_time + 2419200 
+	var timeout_time = unix_time + 2419190 
 	var time = OS.get_datetime_from_unix_time(timeout_time)
 	var year = time["year"]
 	var month = time["month"]
@@ -35,6 +35,9 @@ func _on_Button_pressed():
 	$Button/HTTPRequest.request(url, headers, true, HTTPClient.METHOD_PATCH, query)
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	
+	print(response_code)
+	print(body)
 	if response_code == 200:
 		$Button.text = "destroyed"
 		yield(get_tree().create_timer(2), "timeout")

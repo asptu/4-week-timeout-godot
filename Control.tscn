@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://cera.otf" type="DynamicFontData" id=2]
@@ -54,8 +54,12 @@ Button/styles/pressed = SubResource( 7 )
 LineEdit/styles/normal = SubResource( 6 )
 Panel/styles/panel = SubResource( 5 )
 
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 2 )
+
 [sub_resource type="Theme" id=8]
-Button/fonts/font = null
+Button/fonts/font = SubResource( 9 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -87,7 +91,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -452.0
-margin_top = -199.0
+margin_top = -200.0
 margin_right = -222.0
 margin_bottom = -175.0
 
@@ -121,10 +125,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 185.0
-margin_top = -193.0
-margin_right = 433.0
-margin_bottom = -169.0
+margin_left = 188.0
+margin_top = -200.0
+margin_right = 436.0
+margin_bottom = -175.0
 
 [node name="UserID_Label" type="RichTextLabel" parent="UserID_Input"]
 margin_left = 46.0
